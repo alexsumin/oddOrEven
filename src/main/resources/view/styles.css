@@ -1,0 +1,7 @@
+.default-color0.chart-series-line {
+    -fx-stroke: blue;
+}
+
+.default-color1.chart-series-line {
+    -fx-stroke: yellow;
+}
