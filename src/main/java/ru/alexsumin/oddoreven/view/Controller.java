@@ -100,21 +100,18 @@ public class Controller {
 
         switch (choiceBox.getValue()) {
             case BOTH_RANDOM: {
-                game.setPlayer1(new SimplePlayer());
-                game.setPlayer2(new LuckyPlayer());
-                System.out.println("тупые игроки играют");
+                game.setPlayer1(new LuckyPlayer());
+                game.setPlayer2(new SimplePlayer());
                 break;
             }
             case ONE_RANDOM: {
-                game.setPlayer1(new LuckyPlayer());
+                game.setPlayer1(new SimplePlayer());
                 game.setPlayer2(new SimplePlayer());
-                System.out.println("первый умный");
                 break;
             }
             case BOTH_LUCKY: {
                 game.setPlayer1(new LuckyPlayer());
-                game.setPlayer2(new LuckyPlayer());
-                System.out.println("оба умные");
+                game.setPlayer2(new SimplePlayer());
                 break;
             }
         }
@@ -194,5 +191,6 @@ public class Controller {
             }
         });
     }
+
 
 }

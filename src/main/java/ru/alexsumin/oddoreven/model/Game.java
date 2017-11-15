@@ -3,6 +3,7 @@ package ru.alexsumin.oddoreven.model;
 
 import javafx.scene.control.TextArea;
 import javafx.util.Pair;
+import ru.alexsumin.oddoreven.log.ConcLog;
 import ru.alexsumin.oddoreven.log.Logger;
 
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ public class Game {
 
 
     public void play() {
+        ConcLog log = new ConcLog(textArea);
+
         for (short i = 1; i <= number; i++) {
             first = player1.getDecision();
             second = player2.getDecision();
@@ -50,8 +53,12 @@ public class Game {
             }
             results.add(new Pair<>(i, Float.valueOf(totalSum / (float) i)));
             //logger.writeGame(i, first, second, isOdd(sum), sum, totalSum);
+            log.addToQueue(i, first, second, isOdd(sum), sum, totalSum);
+
         }
-        logger.writeResult(number, totalSum);
+        //logger.writeResult(number, totalSum);
+        log.run();
+        log.writeAverage(number, totalSum);
 
     }
 

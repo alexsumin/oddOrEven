@@ -11,10 +11,10 @@ public class LuckyPlayer implements Player {
     @Override
     public byte getDecision() {
         byte temp = (byte) (Math.random() * 100);
-        if ((temp >= 20) && (temp <= 80)) {
+        if ((temp >= 25) && (temp <= 75)) {
             return 2;
         }
-        if (temp < 20) {
+        if (temp < 25) {
             return 1;
         } else return 3;
     }
